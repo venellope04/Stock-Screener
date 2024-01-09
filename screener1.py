@@ -1,3 +1,7 @@
-import pandas_datareader as web
-import pandas as pd
-from yahoo_fin import stock_info as stock_info
+from pandas_datareader import data as pdr
+import pandas as pd 
+import yfinance as yf
+import datetime as dt 
+from tkinter import Tk 
+from Tkinter.filedialog import askopenfilename
+
