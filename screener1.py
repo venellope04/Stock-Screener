@@ -3,7 +3,7 @@ import pandas as pd
 import yfinance as yf
 from PyQt5.QtWidgets import QApplication,QMainWindow,QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, QWidget
 
-start =dt.datetime(2017,12,1)
+start =dt.datetime(2020,12,1)
 now=dt.datetime.now()
 
 class StockScreenerApp(QMainWindow):
@@ -20,7 +20,7 @@ class StockScreenerApp(QMainWindow):
 
         self.table=QTableWidget()
         self.table.setColumnCount(7)
-        self.table.setHorizontalHeaderLabels(['Stock','RSI_rating', '150 Day MA', '200 Day MA', '52 Week Low', '52 Week High'])
+        self.table.setHorizontalHeaderLabels(['Stock', '150 Day MA', '200 Day MA', '52 Week Low', '52 Week High'])
         layout.addWidget(self.table)
 
         self.refresh_button = QPushButton("Refresh", self)
@@ -49,7 +49,7 @@ class StockScreenerApp(QMainWindow):
                 low_of_52week = df["Adj Close"].iloc[-260:].min()
                 high_of_52week = df["Adj Close"].iloc[-260:].max()
 
-                exportList.append({"stock":stock ,"RSI_Rating":"N/A","50 Day MA":moving_average_50,
+                exportList.append({"stock":stock ,"50 Day MA":moving_average_50,
                                    "150 Day Ma": moving_average_150, "200 Day MA": moving_average_200,
                                    "52 Week Low": low_of_52week, "52 Week High": high_of_52week })
             except Exception as e:
